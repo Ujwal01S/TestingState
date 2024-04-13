@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import Fetch from './Component/Fetch';
 import './App.css';
 const defaultInput = '';
 function App() {
@@ -14,6 +15,11 @@ function App() {
     console.log(submit);
     setUserInput(defaultInput);
   };
+  const newDataHandler=(dataFromFetch)=>{
+    const fetchData= dataFromFetch;
+    console.log('dataFromFetch triggered');
+    console.log(fetchData);
+  };
 
   return (
     <div>
@@ -24,6 +30,7 @@ function App() {
         value={userInput} />
         <button onClick={submitHandler} >Submit</button>
       {/* </form> */}
+      <Fetch onNewData={newDataHandler}/>
     </div>
   );
 }
